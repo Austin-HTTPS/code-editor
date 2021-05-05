@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Coding.io</title>
+    <link href="css/master.css" rel="stylesheet" type="text/css" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  </head>
+
+  <!-- Make the flow of content vertical or column -->
+  <body class="grey lighten-5" style="display: flex; flex-direction: column; min-height; 100vh;">
+
+    <!-- Main content grows but doesn't shrink -->
+    <main style="flex: 1 0 auto;">
+      <!-- Keeps everything in the center -->
+      <center>
+        <!-- Logo would go here -->
+        <div class="logo"><h3>Coding.io Login</h3></div>
+        <!-- Blank section for spacing -->
+        <div class="section"></div>
+        <div class="container">
+          <!-- Login Form -->
+          <div id="form" class="row grey lighten-3 z-depth-2 credentials">
+            <form id="loginform" class="col s12">
+
+              <!-- Email -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" name="email" type="email" class="validate" required>
+                  <label for="email">Email</label>
+                  <span class="helper-text" data-error="Invalid Email"></span>
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" name="password" type="password" required>
+                  <label for="password">Password</label>
+                  <span class="helper-text" data-error="Password must be at least 6 characters"></span><br>
+                  <span class="forgot-pwd"><a href="javascript:void(0);" onclick="forgotpwd()">Forgot password?</a></span>
+                </div>
+              </div>
+
+              <!-- Login Button -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <button id="submit-btn" type="submit" class="col s12 btn btn-large waves-effect grey">
+                    Login
+                  </button>
+                </div>
+              </div>
+
+              <!-- Create Account Link -->
+              <center>
+                <div class="section">
+                  <span><a href="/create">Create Account</a></span>
+                </div>
+              </center>
+            </form>
+          </div>
+          <!-- Forgot Password Form -->
+          <div id="forgot-form" class="row grey lighten-3 z-depth-2 credentials">
+            <form id="forgot-pwd" class="col s12">
+              <p>We will send you a email with a reset link.</p>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="resetemail" type="email" class="validate" required>
+                  <label for="resetemail">Email</label>
+                  <span class="helper-text" data-error="Invalid Email"></span>
+                  <span><a>Resend Confirmation</a></span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </center>
+    </main>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

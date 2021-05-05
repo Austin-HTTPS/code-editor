@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>This is Coding.io</title>
+    <link rel="stylesheet" href="css/language.css" type="text/css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script>
+      const language = "<%= Language %>";
+      const projectid = "<%= ProjectId %>";
+      const dir = <%- Files %>;
+      const file = `<%- MainFile %>`;
+      const mainfile = `<%- MainFileName %>`;
+      let models = {};
+      let model = "";
+      let selectedfile = `<%- MainFile %>`;
+      let selectedfilename = `<%- MainFileName %>`;
+    </script>
+    <script src="/monaco-editor/min/vs/loader.js"></script>
+  </head>
+  <body class="no-scroll">
+    <%- TopNav %>
+
+    <main id="root">
+      
+    </main>
+    <script src="../js/types.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/console.js"></script>
+    <script src="../js/editor.js"></script>
+    <script src="../js/filetree.js"></script>
+  </body>
+</html>

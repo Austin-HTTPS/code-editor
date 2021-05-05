@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>This is Coding.io</title>
+    <link rel="stylesheet" href="../css/language.css" type="text/css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Xterm -->
+    <link rel="stylesheet" href="/node_modules/xterm/css/xterm.css" />
+    <script src="/node_modules/xterm/lib/xterm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
+
+    <!-- Socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script>
+      const language = "<%= Language %>";
+      const projectid = "<%= ProjectId %>";
+      const dir = <%- Files %>;
+      const file = `<%- MainFile %>`;
+      const mainfile = `<%- MainFileName %>`;
+      let models = {};
+      let model = "";
+      let selectedfile = `<%- MainFile %>`;
+      let selectedfilename = `<%- MainFileName %>`;
+    </script>
+    <script src="../monaco-editor/min/vs/loader.js"></script>
+  </head>
+  <body class="no-scroll">
+    <%- TopNav %>
+
+    <div id="buttons">
+      <div id="savebtn" onclick="save()">Save</div>
+      <div id="runbtn" onclick="runfile()">Run</div>
+    </div>
+
+    <main id="root">
+      <div id="files" class="no-highlight">
+        <div id="file-topbar">
+          <svg width="34.444" height="30.299" xmlns="http://www.w3.org/2000/svg" class="remove-file-icon-svg">
+            <g>
+              <rect x="-1" y="-1" width="4.08121" height="3.83076" id="canvas_background" fill="none"/>
+            </g>
+            <g>
+              <polygon points="20.963 1.72 10.572 1.72 10.572 22.234 28.296 22.234 28.296 9.023 20.963 1.72" fill="rgb(33, 46, 68)" id="svg_1"/>
+              <polygon points="12.235 3.442 12.235 20.512 26.663 20.512 26.663 9.588 20.042 9.588 20.042 3.442 12.235 3.442" fill="rgb(152, 193, 217)" id="svg_2"/>
+              <circle class="cls-3" cx="12.723" cy="21.758" r="6.881" id="svg_3"/>
+              <g class="cls-4" display="none" id="svg_4">
+              <path class="cls-2" d="m16.591,22.234l-3.259,0l0,3.406l-1.1,0l0,-3.406l-3.239,0l0,-1.09l3.242,0l0,-3.406l1.1,0l0,3.406l3.259,0l-0.003,1.09z" id="svg_5"/>
+              </g>
+              <line fill="none" stroke="#000" stroke-width="1.5" x1="7.04073" y1="22.0651" x2="14.53927" y2="22.0651" id="svg_7" stroke-linejoin="undefined" stroke-linecap="undefined"/>
+              <ellipse fill="#619e73" stroke-width="1.5" cx="12.66007" cy="21.70256" id="svg_18" rx="6.22356" ry="6.22356" stroke="#619e73"/>
+              <line fill="none" stroke-width="1.5" x1="7.64496" y1="22.00467" x2="17.41466" y2="22.00467" id="svg_20" stroke-linejoin="null" stroke-linecap="null" stroke="#ea1212"/>
+            </g>
+          </svg>
+          <svg width="34.444" height="30.299" xmlns="http://www.w3.org/2000/svg" class="remove-folder-icon-svg">
+            <g>
+              <rect x="-1" y="-1" width="6.851268" height="6.267465" id="canvas_background" fill="none"/>
+            </g>
+
+            <g>
+              <rect x="7.671" y="5.044" width="24.047" height="16.744" fill=" rgb(33, 46, 68)" id="svg_1"/>
+              <path d="m29.287,4.12l0,-2.743l-8.767,0l0,2.743l-13.971,0l0,18.964l26.3,0l0,-18.964l-3.562,0zm1.935,17.38l-23.106,0l0,-15.8l13.971,0l0,-2.742l5.573,0l0,2.742l3.561,0l0.001,15.8z" id="svg_2"/>
+              <rect x="20.852" y="2.847" width="7.214" height="2.85" id="svg_3"/>
+              <circle class="cls-3" cx="8.581" cy="22.024" r="6.881" id="svg_4"/>
+              <path class="cls-1" d="m12.449,22.5l-3.258,0l0,3.406l-1.1,0l0,-3.406l-3.24,0l0,-1.09l3.242,0l0,-3.41l1.1,0l0,3.41l3.259,0l-0.003,1.09z" id="svg_5"/>
+              <ellipse fill="#8CD79F" stroke-width="null" stroke-opacity="null" cx="8.589524" cy="22.064564" id="svg_10" rx="7.008547" ry="7.008547" stroke="null"/>
+              <line fill="none" stroke-width="null" x1="3.461319" y1="22.577385" x2="13.231821" y2="22.577385" id="svg_11" stroke-linejoin="null" stroke-linecap="null" stroke="#f41111"/>
+            </g>
+          </svg>
+          <svg class="add-file-icon-svg" data-name="Layer 1 copy 5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.444 30.299"><defs class="jsx-2225429583"></defs><polygon class="cls-1" points="20.963 1.72 10.572 1.72 10.572 22.234 28.296 22.234 28.296 9.023 20.963 1.72"></polygon><polygon class="cls-2" points="12.235 3.442 12.235 20.512 26.663 20.512 26.663 9.588 20.042 9.588 20.042 3.442 12.235 3.442" style="fill: rgb(33, 46, 68);"></polygon><circle class="cls-3" cx="12.723" cy="21.758" r="6.881" style="display: initial;"></circle><g class="cls-4" style="display: initial;"><path class="cls-2" d="M16.591,22.234H13.332v3.406h-1.1V22.234H8.993v-1.09h3.242V17.738h1.1v3.406h3.259Z"></path></g></svg>
+          <svg class="add-folder-icon-svg" data-name="add folder icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.444 30.299"><defs class="jsx-236533324"></defs><rect class="cls-1" x="7.671" y="5.044" width="24.047" height="16.744" style="fill: rgb(33, 46, 68);"></rect><path class="cls-2" d="M29.287,4.12V1.377H20.52V4.12H6.549V23.084h26.3V4.12ZM31.222,21.5H8.116V5.7H22.087V2.958h5.573V5.7h3.561Z"></path><rect class="cls-2" x="20.852" y="2.847" width="7.214" height="2.85"></rect><circle class="cls-3" cx="8.581" cy="22.024" r="6.881" style="display: initial;"></circle><path class="cls-1" d="M12.449,22.5H9.191v3.406h-1.1V22.5H4.851V21.41H8.093V18h1.1V21.41h3.259Z" style="display: initial;"></path></svg>
+        </div>
+        <ul class="root">
+          <!-- <li class="folder-node">
+            <div class="folder"><img src="../icons/icon-folder-blue.svg" />js</div>
+            <ul class="nested">
+              <li class="file-node">
+                <div class="file"><img src="../icons/icon-jslogo.svg" />script.js</div>
+              </li>
+            </ul>
+          </li>
+          <li class="file-node">
+            <div class="file"><img src="../icons/icon-jslogo.svg" />index.js</div>
+          </li> -->
+        </ul>
+      </div>
+      <div id="container" class="container left"></div>
+      <div id="container-console" class="sizer no-highlight"><p>|</p></div>
+      <div id="terminal" class="console">
+        
+      </div>
+    </main>
+    <!-- <script src="../js/pterminal.js"></script> -->
+    <script src="../js/editor.js" async></script>
+    <script src="../js/types.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/console.js"></script>
+    <script src="../js/filetree.js"></script>
+  </body>
+</html>

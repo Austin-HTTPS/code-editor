@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Coding.io</title>
+    <link href="css/master.css" rel="stylesheet" type="text/css" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <!-- Make the flow of content vertical or column -->
+  <body class="grey lighten-5" style="display: flex; flex-direction: column; min-height; 100vh;">
+
+    <!-- Main content grows but doesn't shrink -->
+    <main style="flex: 1 0 auto;">
+      <!-- Keeps everything in the center -->
+      <center>
+        <div class="logo"><h3>Create Coding.io Account</h3></div>
+        <!-- Blank section for spacing -->
+        <div class="section"></div>
+        <div class="container">
+          <!-- Login Form -->
+          <div id="form" class="row grey lighten-3 z-depth-2 credentials">
+            <form id="sign-up-form" class="col s12">
+              <!-- First name-->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="first_name" name="first_name" type="text" required>
+                  <label for="first_name">First Name</label>
+                  <span class="helper-text" data-error="Name must start with a capital letter"></span>
+                </div>
+              </div>
+             <!--Last Name -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id ="last_name" name="last_name" type="text" required>
+                  <label for="last_name">Last Name</label>
+                  <span class="helper-text" data-error="Last name must have capital letter"></span>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" name="email" type="email" class="validate" required>
+                  <label for="email">Email</label>
+                  <span class="helper-text" data-error="Invalid Email"></span>
+                </div>
+              </div>
+              <!-- Password -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" name="password" type="password" required>
+                  <label for="password">Password</label>
+                  <span class="helper-text" data-error="Password must be at least 6 characters"></span>
+                </div>
+              </div>
+              <!-- pfp
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <input id="avatar" name="avatar" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload a profile image">
+                </div>
+              </div> -->
+        
+              <!-- Sign Up Button -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <button id="btn" type="submit" class="col s12 btn btn-large waves-effect grey">
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </center>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

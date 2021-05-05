@@ -1,0 +1,26 @@
+{
+  "node": {
+    "startfile": "index.js",
+    "runfile": "index.js",
+    "hiddenfiles": [],
+    "runcmd": "node"
+  },
+  "python": {
+    "startfile": "main.py",
+    "runfile": "main.py",
+    "hiddenfiles": [],
+    "runcmd": "python"
+  },
+  "js": {
+    "startfile": "index.js",
+    "runfile": "index.js",
+    "hiddenfiles": [],
+    "runcmd": "node"
+  },
+  "web": {
+    "startfile": "index.html",
+    "runfile": "server.js",
+    "hiddenfiles": ["server.js"],
+    "runcmd": "node"
+  }
+}

@@ -1,0 +1,50 @@
+#languages {
+  display: flex;
+  flex-direction: row;
+}
+
+#languages div {
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Login */
+
+.helper-text {
+  font-size: 12px !important;
+}
+
+.credentials {
+  display: inline-block;
+
+  padding: 32px 48px 32px 48px;
+
+  width: 50%;
+
+  border: 2px solid transparent;
+}
+
+.forgot-pwd {
+  cursor: pointer;
+
+  float: right;
+
+  font-size: 12px;
+}
+
+#forgot-form {
+  display: none;
+}
+
+.text {
+  text-align: center;
+}
+
+.fz30 {
+  font-size: 30px;
+}
+
+#logo {
+  position: fixed;
+}
